@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLR Bites | How It Works</title>
+  <meta name="description" content="See how BLR Bites turns popularity, quality, and reliability into smarter Bangalore food decisions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="how">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="BLR Bites home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img">
+            <circle cx="32" cy="32" r="30" fill="#f3e8d7"></circle>
+            <path d="M16 39c2-10 10-17 16-17s14 7 16 17" fill="none" stroke="#b46d53" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+            <path d="M14 43h36" fill="none" stroke="#8d533f" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M30 19c0-2 1-4 2-4s2 2 2 4" fill="none" stroke="#76805b" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M24 26l-5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M40 26l5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>BLR Bites</strong>
+          <small>Decision intelligence</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="map.html">Map</a>
+        <a href="plan-day.html">Plan Day</a>
+        <a class="active" href="how-it-works.html">How It Works</a>
+        <a href="add-a-spot.html">Add a Spot</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="nav-auth-link" href="sign-in.html">Sign in</a>
+        <a class="primary-button compact" href="sign-up.html">Sign up</a>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <section class="method-layout">
+        <div class="method-copy">
+          <p class="eyebrow">The method</p>
+          <h1>Hype, quality, reliability.</h1>
+          <p class="hero-subtitle">
+            Star ratings alone are misleading. A 3.8 with thousands of reviews is a very different signal from
+            a 4.6 with forty. BLR Bites separates popularity from quality so you can make better choices.
+          </p>
+
+          <div class="method-note">
+            <p class="eyebrow small">Why ratings alone fail</p>
+            <h2>A 4.8 with 20 reviews and a 4.4 with 8,000 reviews are very different signals.</h2>
+            <p>BLR Bites separates popularity, quality, and confidence so recommendations feel more trustworthy and less driven by noise.</p>
+          </div>
+
+          <div class="method-step">
+            <p class="eyebrow small">Step 01</p>
+            <h2>Normalize</h2>
+            <p>Popularity measures visibility and public attention. Quality uses Bayesian-adjusted ratings and weighted scaling so tiny sample sizes do not instantly look elite.</p>
+            <details class="technical-logic">
+              <summary>Show technical logic</summary>
+              <div class="formula-line">Popularity = log(review_count) &divide; log(max_review_count)</div>
+              <div class="formula-line">Adjusted Rating = (v / (v + m) &times; R) + (m / (v + m) &times; C)</div>
+              <div class="formula-line">Quality = clamp((weighted rating - 3) &divide; 2, 0, 1)</div>
+            </details>
+          </div>
+
+          <div class="method-step">
+            <p class="eyebrow small">Step 02</p>
+            <h2>Compare</h2>
+            <div class="formula-line">Hype = Popularity - Quality</div>
+            <div class="formula-line">Underrated = Quality - Popularity</div>
+            <div class="formula-line">Reliability reflects confidence derived from review volume.</div>
+            <p><strong>Hype and Underrated are opposites, while reliability remains independent.</strong> A restaurant can be highly reliable yet overhyped, or a hidden gem with lower confidence.</p>
+          </div>
+
+          <div class="method-step">
+            <p class="eyebrow small">Step 03</p>
+            <h2>Classify</h2>
+            <ul class="method-list">
+              <li><strong>Overhyped</strong> when visibility significantly exceeds quality while the review base provides strong confidence.</li>
+              <li><strong>Hidden Gem</strong> when quality significantly exceeds visibility while confidence remains statistically reliable.</li>
+              <li><strong>Worth It</strong> when popularity and quality remain balanced or consistently dependable.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="scatter-panel">
+          <div class="scatter-header">
+            <h2>Popularity vs Quality</h2>
+            <p>Points above the diagonal punch above their popularity. Points below it are not necessarily bad restaurants; they are simply more popular than their quality signal suggests.</p>
+          </div>
+          <div class="scatter-plot" id="scatter-plot" aria-label="Popularity versus quality scatter plot"></div>
+        </aside>
+      </section>
+    </main>
+
+    <div class="toast-stack" id="toast-stack"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/zod@3.23.8/lib/index.umd.min.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="restaurants-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

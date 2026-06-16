@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLR Bites | Add a Spot</title>
+  <meta name="description" content="Submit missing Bangalore restaurants to BLR Bites and track your contributions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="add-spot">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="BLR Bites home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img">
+            <circle cx="32" cy="32" r="30" fill="#f3e8d7"></circle>
+            <path d="M16 39c2-10 10-17 16-17s14 7 16 17" fill="none" stroke="#b46d53" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+            <path d="M14 43h36" fill="none" stroke="#8d533f" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M30 19c0-2 1-4 2-4s2 2 2 4" fill="none" stroke="#76805b" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M24 26l-5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M40 26l5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>BLR Bites</strong>
+          <small>Decision intelligence</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="map.html">Map</a>
+        <a href="plan-day.html">Plan Day</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a class="active" href="add-a-spot.html">Add a Spot</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="nav-auth-link" href="sign-in.html">Sign in</a>
+        <a class="primary-button compact" href="sign-up.html">Sign up</a>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <section class="section-block add-spot-page">
+        <div class="section-heading">
+          <p class="eyebrow">Add a Spot</p>
+          <h2>Help the map stay complete</h2>
+          <p>Submit a missing Bangalore restaurant with enough signal to review it properly. Duplicate checks run against the current dataset.</p>
+        </div>
+
+        <div class="add-spot-layout">
+          <div class="auth-gate-card" id="add-spot-gate">
+            <h3>Sign in to contribute</h3>
+            <p>We link every submission to a profile so contributors can track status and avoid duplicate entries.</p>
+            <div class="inline-actions">
+              <a class="primary-button compact" href="sign-in.html">Open sign in</a>
+              <a class="ghost-button compact-button" href="sign-up.html">Create account</a>
+            </div>
+          </div>
+
+          <form class="spot-form" id="spot-form" hidden>
+            <div class="form-grid">
+              <label><span>Name</span><input name="name" type="text" required></label>
+              <label><span>Area</span><input name="area" type="text" list="area-options" required></label>
+              <label><span>Restaurant type</span><input name="restaurantType" type="text" placeholder="Cafe, Casual Dining, Dessert Parlor"></label>
+              <label><span>Cuisines</span><input name="cuisine" type="text" placeholder="South Indian, Desserts"></label>
+              <label><span>Cost for two (₹)</span><input name="priceRange" type="number" min="0" step="50" required></label>
+              <label><span>Rating</span><input name="rating" type="number" min="0" max="5" step="0.1" required></label>
+              <label><span>Review count</span><input name="reviewCount" type="number" min="0" step="1" required></label>
+              <label><span>Phone</span><input name="phone" type="text"></label>
+              <label><span>Latitude</span><input name="lat" type="number" step="0.000001"></label>
+              <label><span>Longitude</span><input name="lng" type="number" step="0.000001"></label>
+              <label class="wide"><span>Google Maps or address</span><input name="fullAddress" type="text" placeholder="Full address or Maps link"></label>
+              <label class="wide"><span>Why should this be on BLR Bites?</span><textarea name="description" rows="4"></textarea></label>
+            </div>
+            <button class="primary-button" type="submit">Submit spot</button>
+          </form>
+        </div>
+
+        <div class="submission-panel">
+          <div class="results-toolbar">
+            <h2>Your submissions</h2>
+            <span id="submission-count">0</span>
+          </div>
+          <div class="submission-list" id="submission-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <datalist id="area-options"></datalist>
+    <div class="toast-stack" id="toast-stack"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/zod@3.23.8/lib/index.umd.min.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="restaurants-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

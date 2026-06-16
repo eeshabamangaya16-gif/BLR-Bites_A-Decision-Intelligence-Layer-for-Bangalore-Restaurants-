@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLR Bites | Plan Day</title>
+  <meta name="description" content="Plan a Bangalore food day with mood, budget, area, and distance-aware itinerary generation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="plan">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="BLR Bites home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img">
+            <circle cx="32" cy="32" r="30" fill="#f3e8d7"></circle>
+            <path d="M16 39c2-10 10-17 16-17s14 7 16 17" fill="none" stroke="#b46d53" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+            <path d="M14 43h36" fill="none" stroke="#8d533f" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M30 19c0-2 1-4 2-4s2 2 2 4" fill="none" stroke="#76805b" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M24 26l-5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M40 26l5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>BLR Bites</strong>
+          <small>Decision intelligence</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="map.html">Map</a>
+        <a class="active" href="plan-day.html">Plan Day</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="add-a-spot.html">Add a Spot</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="nav-auth-link" href="sign-in.html">Sign in</a>
+        <a class="primary-button compact" href="sign-up.html">Sign up</a>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <section class="section-block planner-page">
+        <div class="section-heading">
+          <p class="eyebrow">Itinerary</p>
+          <h2>Plan your food day</h2>
+          <p>One cafe, one lunch, one dessert, one dinner. Filter by mood, budget, cuisine, tag, area, and distance before generating the route.</p>
+        </div>
+
+        <div class="planner-card">
+          <div class="planner-mood-row">
+            <div>
+              <label class="planner-label">Mood</label>
+              <div class="chip-filter-row" id="planner-moods"></div>
+            </div>
+          </div>
+
+          <form class="planner-controls" id="planner-form">
+            <select id="planner-area" aria-label="Choose area">
+              <option value="">Anywhere</option>
+            </select>
+            <select id="planner-budget" aria-label="Choose budget">
+              <option value="">Any budget per stop</option>
+              <option value="budget">Budget</option>
+              <option value="mid">Mid</option>
+              <option value="premium">Premium</option>
+            </select>
+            <select id="planner-cuisine" aria-label="Choose cuisine">
+              <option value="">Any cuisine</option>
+            </select>
+            <select id="planner-tag" aria-label="Choose tag">
+              <option value="">Any tag</option>
+              <option value="overhyped">Overhyped</option>
+              <option value="hidden-gem">Hidden Gem</option>
+              <option value="worth-it">Worth It</option>
+            </select>
+            <select id="planner-hop-distance" aria-label="Choose max hop distance">
+              <option value="2">Max 2 km hop</option>
+              <option value="4" selected>Max 4 km hop</option>
+              <option value="6">Max 6 km hop</option>
+              <option value="10">Max 10 km hop</option>
+            </select>
+            <select id="planner-user-distance" aria-label="Choose distance from current location">
+              <option value="">Ignore my current distance</option>
+              <option value="3">Within 3 km</option>
+              <option value="5">Within 5 km</option>
+              <option value="8">Within 8 km</option>
+              <option value="12">Within 12 km</option>
+            </select>
+            <div class="planner-actions">
+              <button class="ghost-button compact-button" id="use-location" type="button">Use location</button>
+              <button class="primary-button compact" type="submit">Generate</button>
+              <button class="ghost-button compact-button" id="shuffle-plan" type="button">Shuffle picks</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="planner-summary" id="planner-summary">Choose your filters, then generate an itinerary built from the Bangalore dataset.</div>
+        <div class="timeline" id="plan-timeline"></div>
+      </section>
+    </main>
+
+    <div class="toast-stack" id="toast-stack"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/zod@3.23.8/lib/index.umd.min.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="restaurants-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

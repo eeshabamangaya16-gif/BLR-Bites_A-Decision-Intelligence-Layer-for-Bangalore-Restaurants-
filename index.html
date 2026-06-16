@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLR Bites | Home</title>
+  <meta name="description" content="BLR Bites is Bangalore's map-first, data-driven food discovery platform for finding hidden gems and avoiding overrated restaurants.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="BLR Bites home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img">
+            <circle cx="32" cy="32" r="30" fill="#f3e8d7"></circle>
+            <path d="M16 39c2-10 10-17 16-17s14 7 16 17" fill="none" stroke="#b46d53" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+            <path d="M14 43h36" fill="none" stroke="#8d533f" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M30 19c0-2 1-4 2-4s2 2 2 4" fill="none" stroke="#76805b" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M24 26l-5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M40 26l5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>BLR Bites</strong>
+          <small>Decision intelligence</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a class="active" href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="map.html">Map</a>
+        <a href="plan-day.html">Plan Day</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="add-a-spot.html">Add a Spot</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="nav-auth-link" href="sign-in.html">Sign in</a>
+        <a class="primary-button compact" href="sign-up.html">Sign up</a>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <section class="hero editorial-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Bangalore's Decision-Intelligence Layer</p>
+          <h1>Stop confusing buzz with brilliance.</h1>
+          <p class="hero-subtitle">
+            Find Bangalore's real hidden gems using data, not noise. Every pick is scored across popularity,
+            Bayesian-adjusted quality, hype, underrated potential, and reliability.
+          </p>
+
+          <form class="search-row" id="home-search-form">
+            <div class="search-autocomplete" id="home-search-autocomplete">
+              <label class="search-field" for="global-search">
+                <span class="sr-only">Search Bangalore restaurants</span>
+                <input id="global-search" type="search" placeholder="Search restaurants, cuisines, or areas..." autocomplete="off" aria-autocomplete="list" aria-controls="home-search-suggestions" aria-expanded="false">
+              </label>
+              <div class="autocomplete-panel" id="home-search-suggestions" role="listbox" aria-label="Restaurant suggestions" hidden></div>
+            </div>
+            <button class="primary-button" type="submit">Explore Restaurants</button>
+          </form>
+
+          <div class="cta-row">
+            <a class="ghost-button" href="explore.html">Explore Restaurants</a>
+            <a class="ghost-button" href="map.html">Open Map</a>
+            <a class="ghost-button" href="plan-day.html">Plan Your Day</a>
+          </div>
+
+          <div class="signal-card hero-model-section">
+            <div class="signal-card-header">
+              <p class="eyebrow small">The model</p>
+              <h2>Popularity, quality, reliability.</h2>
+            </div>
+            <div class="signal-grid">
+              <article>
+                <span>Popularity</span>
+                <strong>Visibility and public attention</strong>
+                <p>Review volume is log-normalized so mainstream visibility is measured without letting giant counts overwhelm the platform.</p>
+              </article>
+              <article>
+                <span>Quality</span>
+                <strong>Bayesian-adjusted before scoring</strong>
+                <p>Raw ratings are softened toward the platform average until a restaurant earns enough evidence.</p>
+              </article>
+              <article>
+                <span>Reliability</span>
+                <strong>Independent confidence</strong>
+                <p>A place can be overhyped and reliable, or a hidden gem with lower confidence. The UI keeps that nuance visible.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="mood-engine">
+            <p class="mood-label">What are you in the mood for?</p>
+            <div class="mood-chip-row" id="hero-moods"></div>
+          </div>
+
+          <div class="stat-strip">
+            <article><span>Restaurants</span><strong id="stat-total">0</strong></article>
+            <article><span>Mapped</span><strong id="stat-mapped">0</strong></article>
+            <article><span>Hidden Gems</span><strong id="stat-hidden">0</strong></article>
+            <article><span>Overhyped</span><strong id="stat-overhyped">0</strong></article>
+          </div>
+
+          <div class="preview-map-card hero-map-section">
+            <div class="preview-map-header">
+              <div>
+                <p class="eyebrow small">Map preview</p>
+                <h2>Bangalore at a glance</h2>
+              </div>
+              <a class="inline-link" href="map.html">Open full map</a>
+            </div>
+            <div class="map-shell preview" id="home-preview-map" aria-label="Bangalore restaurant map preview"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block home-row-section">
+        <div class="section-heading compact with-link">
+          <div>
+            <p class="eyebrow">Trending Overhyped</p>
+            <h2>Visibility outrunning quality.</h2>
+            <p>Heavily reviewed places where the adjusted quality signal asks for a second look.</p>
+          </div>
+          <a class="inline-link" href="explore.html?tag=overhyped">See all</a>
+        </div>
+        <div class="restaurant-grid three-up" id="overhyped-grid"></div>
+      </section>
+
+      <section class="section-block home-row-section">
+        <div class="section-heading compact with-link">
+          <div>
+            <p class="eyebrow">Hidden Gems</p>
+            <h2>Quiet spots with standout quality.</h2>
+            <p>High-quality restaurants that have not become mainstream Bangalore defaults yet.</p>
+          </div>
+          <a class="inline-link" href="explore.html?tag=hidden-gem">See all</a>
+        </div>
+        <div class="restaurant-grid three-up" id="hidden-gems-grid"></div>
+      </section>
+
+      <section class="section-block home-row-section">
+        <div class="section-heading compact with-link">
+          <div>
+            <p class="eyebrow">Worth It</p>
+            <h2>Dependable Bangalore picks.</h2>
+            <p>Balanced places where popularity, quality, and reliability stay in a healthier range.</p>
+          </div>
+          <a class="inline-link" href="explore.html?tag=worth-it">See all</a>
+        </div>
+        <div class="restaurant-grid three-up" id="worth-it-grid"></div>
+      </section>
+
+      <section class="section-block home-row-section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Explore by Area</p>
+          <h2>Neighborhoods at a glance</h2>
+          <p>Each card shows total spots, overhyped count, hidden gem count, worth-it count, and average rating.</p>
+        </div>
+        <div class="area-grid" id="area-grid"></div>
+      </section>
+
+      <section class="callout-card">
+        <div>
+          <p class="eyebrow">How It Works</p>
+          <h2>Popularity vs quality, made visual.</h2>
+          <p>See exactly how BLR Bites separates noisy popularity from actual quality before you spend money.</p>
+        </div>
+        <div class="callout-actions">
+          <a class="ghost-button" href="how-it-works.html">See the method</a>
+          <a class="ghost-button" href="plan-day.html">Plan a food day</a>
+        </div>
+      </section>
+    </main>
+
+    <datalist id="area-options"></datalist>
+    <div class="toast-stack" id="toast-stack"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/zod@3.23.8/lib/index.umd.min.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="restaurants-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

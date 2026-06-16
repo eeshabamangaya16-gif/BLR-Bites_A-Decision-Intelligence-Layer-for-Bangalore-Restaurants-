@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLR Bites | Sign In</title>
+  <meta name="description" content="Sign in to BLR Bites to save preferences and track spot submissions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="sign-in">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="BLR Bites home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img">
+            <circle cx="32" cy="32" r="30" fill="#f3e8d7"></circle>
+            <path d="M16 39c2-10 10-17 16-17s14 7 16 17" fill="none" stroke="#b46d53" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+            <path d="M14 43h36" fill="none" stroke="#8d533f" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M30 19c0-2 1-4 2-4s2 2 2 4" fill="none" stroke="#76805b" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M24 26l-5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M40 26l5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>BLR Bites</strong>
+          <small>Decision intelligence</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="map.html">Map</a>
+        <a href="plan-day.html">Plan Day</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="add-a-spot.html">Add a Spot</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="nav-auth-link active" href="sign-in.html">Sign in</a>
+        <a class="primary-button compact" href="sign-up.html">Sign up</a>
+      </div>
+    </header>
+
+    <main class="page-main auth-page-shell">
+      <section class="auth-page-card">
+        <div class="auth-copy">
+          <p class="eyebrow">Sign In</p>
+          <h1>Return to your BLR Bites profile.</h1>
+          <p>Use your saved session to track contributions, keep preferences, and move faster through Bangalore's food map.</p>
+          <p class="inline-meta">New here? <a class="inline-link" href="sign-up.html">Create an account</a></p>
+        </div>
+
+        <div class="auth-panel">
+          <div class="auth-status" id="auth-status"></div>
+          <form class="auth-form" id="auth-form" novalidate>
+            <label><span>Email</span><input id="auth-email" type="email" required></label>
+            <label><span>Password</span><input id="auth-password" type="password" required></label>
+            <button class="primary-button" id="auth-submit" type="submit">Sign in</button>
+          </form>
+          <div class="profile-state" id="profile-state"></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast-stack" id="toast-stack"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/zod@3.23.8/lib/index.umd.min.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="restaurants-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

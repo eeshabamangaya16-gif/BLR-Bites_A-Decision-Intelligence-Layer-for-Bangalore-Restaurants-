@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLR Bites | Explore</title>
+  <meta name="description" content="Explore Bangalore restaurants with editorial cards, live filters, and a synchronized map.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="explore">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="BLR Bites home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img">
+            <circle cx="32" cy="32" r="30" fill="#f3e8d7"></circle>
+            <path d="M16 39c2-10 10-17 16-17s14 7 16 17" fill="none" stroke="#b46d53" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+            <path d="M14 43h36" fill="none" stroke="#8d533f" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M30 19c0-2 1-4 2-4s2 2 2 4" fill="none" stroke="#76805b" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M24 26l-5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+            <path d="M40 26l5 6" fill="none" stroke="#cea549" stroke-linecap="round" stroke-width="4"></path>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>BLR Bites</strong>
+          <small>Decision intelligence</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a class="active" href="explore.html">Explore</a>
+        <a href="map.html">Map</a>
+        <a href="plan-day.html">Plan Day</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="add-a-spot.html">Add a Spot</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="nav-auth-link" href="sign-in.html">Sign in</a>
+        <a class="primary-button compact" href="sign-up.html">Sign up</a>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <section class="section-block explore-page">
+        <div class="search-row wide">
+          <label class="search-field" for="explore-search">
+            <span class="sr-only">Search Bangalore restaurants</span>
+            <input id="explore-search" type="search" placeholder="Search restaurants, cuisines, or areas...">
+          </label>
+        </div>
+
+        <div class="chip-filter-row" id="explore-moods"></div>
+
+        <div class="filter-row">
+          <select id="filter-tag" aria-label="Filter by tag">
+            <option value="">All tags</option>
+            <option value="overhyped">Overhyped</option>
+            <option value="hidden-gem">Hidden Gem</option>
+            <option value="worth-it">Worth It</option>
+          </select>
+          <select id="filter-area" aria-label="Filter by area">
+            <option value="">All areas</option>
+          </select>
+          <select id="filter-cuisine" aria-label="Filter by cuisine">
+            <option value="">All cuisines</option>
+          </select>
+          <select id="filter-budget" aria-label="Filter by budget">
+            <option value="">Any price</option>
+            <option value="budget">Budget</option>
+            <option value="mid">Mid</option>
+            <option value="premium">Premium</option>
+          </select>
+          <select id="filter-rating" aria-label="Filter by rating">
+            <option value="">Any rating</option>
+            <option value="3.5">3.5+</option>
+            <option value="4">4.0+</option>
+            <option value="4.5">4.5+</option>
+          </select>
+          <select id="filter-sort" aria-label="Sort restaurants">
+            <option value="recommended">Recommended</option>
+            <option value="rating">Highest rated</option>
+            <option value="reviews">Most reviewed</option>
+            <option value="underrated">Most underrated</option>
+            <option value="hype">Most overhyped</option>
+            <option value="price-low">Lowest price</option>
+            <option value="price-high">Highest price</option>
+          </select>
+          <button class="ghost-button compact-button" id="reset-explore-filters" type="button">Reset</button>
+        </div>
+
+        <div class="results-meta-row">
+          <div class="results-summary" id="explore-summary"></div>
+          <div class="map-legend-inline">
+            <button class="legend-filter active" data-map-toggle="overhyped" type="button"><span class="legend-dot overhyped"></span> Overhyped</button>
+            <button class="legend-filter active" data-map-toggle="hidden-gem" type="button"><span class="legend-dot hidden-gem"></span> Hidden Gem</button>
+            <button class="legend-filter active" data-map-toggle="worth-it" type="button"><span class="legend-dot worth-it"></span> Worth It</button>
+          </div>
+        </div>
+
+        <div class="explore-layout">
+          <aside class="results-column">
+            <div class="results-toolbar">
+              <h2>Explore Bangalore</h2>
+              <span id="rendered-count">0 shown</span>
+            </div>
+            <div class="results-list" id="results-list"></div>
+            <button class="ghost-button load-more-button" id="load-more" type="button">Load more</button>
+          </aside>
+
+          <section class="map-column">
+            <div class="map-panel-header">
+              <div>
+                <h2>Live map</h2>
+                <p id="map-summary">Hover a card to highlight its pin. Click a pin for the restaurant profile.</p>
+              </div>
+              <a class="inline-link" href="map.html">Open full-screen map</a>
+            </div>
+            <div class="map-shell explore-map" id="explore-map" aria-label="Explore map"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <datalist id="area-options"></datalist>
+    <div class="toast-stack" id="toast-stack"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/zod@3.23.8/lib/index.umd.min.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="restaurants-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
