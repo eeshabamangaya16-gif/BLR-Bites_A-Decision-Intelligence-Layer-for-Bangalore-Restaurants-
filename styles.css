@@ -1546,540 +1546,7 @@ img {
     }
   }
 
-@media (max-width: 640px) {
-  .page-shell {
-    padding: 10px 10px 32px;
-  }
-
-  .site-header {
-    top: 6px;
-    padding: 14px;
-    border-radius: 18px;
-  }
-
-  .brand-copy strong {
-    font-size: 1.7rem;
-  }
-
-  .editorial-hero,
-  .auth-page-card,
-  .signal-card,
-  .preview-map-card,
-  .planner-card,
-  .scatter-panel,
-  .auth-panel,
-  .submission-panel,
-  .detail-hero-card,
-  .detail-panel,
-  .detail-map-card {
-    padding: 18px;
-  }
-
-  .hero-copy h1,
-  .auth-copy h1,
-  .method-copy h1 {
-    font-size: 3rem;
-  }
-
-  .search-row,
-  .cta-row,
-  .header-actions,
-  .planner-actions,
-  .timeline-card,
-  .filter-row,
-  .planner-controls,
-  .form-grid,
-  .detail-fact-grid,
-  .detail-score-grid,
-  .score-grid,
-  .stat-strip {
-    grid-template-columns: 1fr;
-    flex-direction: column;
-  }
-
-  .search-row {
-    align-items: stretch;
-  }
-
-  .search-autocomplete {
-    width: 100%;
-  }
-
-  .autocomplete-panel {
-    max-height: 300px;
-  }
-
-  .timeline-card {
-    gap: 12px;
-  }
-
-  .results-column {
-    min-height: auto;
-  }
-
-  .explore-map,
-  .map-fullscreen,
-  .map-shell.preview {
-    min-height: 420px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .site-header {
-    padding: 14px 14px 16px;
-    gap: 12px;
-  }
-
-  .site-nav {
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .site-nav a,
-  .nav-auth-link {
-    flex: 1 1 45%;
-    min-width: 0;
-    text-align: center;
-    padding: 10px 6px;
-    white-space: normal;
-  }
-
-  .header-actions {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .search-autocomplete {
-    min-width: 0;
-  }
-
-  .hero-model-section .signal-grid,
-  .filter-row,
-  .planner-controls,
-  .form-grid,
-  .detail-fact-grid,
-  .detail-score-grid,
-  .score-grid,
-  .stat-strip,
-  .area-stats {
-    grid-template-columns: 1fr !important;
-  }
-
-  .explore-layout,
-  .map-page-layout,
-  .detail-layout,
-  .add-spot-layout,
-  .auth-page-card,
-  .method-layout {
-    grid-template-columns: 1fr !important;
-  }
-
-  .map-filter-card {
-    position: static;
-    top: auto;
-  }
-
-  .map-column {
-    position: relative;
-    top: auto;
-  }
-
-  .map-column .map-panel-header {
-    position: static;
-    width: auto;
-    margin: 0 0 12px;
-  }
-
-  .results-meta-row,
-  .callout-card,
-  .preview-map-header,
-  .map-panel-header,
-  .section-heading.with-link {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .restaurant-grid.three-up,
-  .area-grid,
-  .detail-list-grid,
-  .home-area-grid,
-  .home-horizontal-layout,
-  .home-collections-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .map-fullscreen {
-    min-height: 380px;
-  }
-}
-
-@media (max-width: 640px) {
-  .page-shell {
-    padding: 10px 10px 32px;
-  }
-
-  .site-header {
-    top: 6px;
-    padding: 14px;
-    border-radius: 18px;
-    justify-content: center;
-  }
-
-  .brand-copy strong {
-    font-size: 1.65rem;
-  }
-
-  .site-nav {
-    gap: 8px;
-  }
-
-  .search-row,
-  .cta-row,
-  .header-actions,
-  .card-actions,
-  .inline-actions,
-  .planner-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-field,
-  .search-autocomplete,
-  .autocomplete-panel,
-  .map-filter-card,
-  .detail-sidebar,
-  .map-column,
-  .map-full-surface,
-  .restaurant-grid.three-up,
-  .area-grid,
-  .detail-list-grid,
-  .home-area-grid,
-  .detail-layout,
-  .explore-layout,
-  .map-page-layout,
-  .add-spot-layout,
-  .auth-page-card,
-  .method-layout,
-  .filter-row,
-  .planner-controls,
-  .form-grid,
-  .detail-fact-grid,
-  .detail-score-grid,
-  .score-grid,
-  .stat-strip {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .search-row {
-    align-items: stretch;
-  }
-
-  .search-field {
-    min-height: 48px;
-    padding: 0 12px;
-  }
-
-  .hero-copy h1,
-  .auth-copy h1,
-  .method-copy h1,
-  .timeline-card-body h3,
-  .section-heading h2 {
-    font-size: clamp(2rem, 6vw, 2.6rem);
-  }
-
-  .callout-card,
-  .map-panel-header,
-  .preview-map-header,
-  .planner-card,
-  .signal-card,
-  .preview-map-card,
-  .auth-panel,
-  .submission-panel,
-  .detail-hero-card,
-  .detail-panel,
-  .detail-map-card,
-  .scatter-panel {
-    padding: 18px;
-  }
-
-  .filter-row select,
-  .planner-controls select,
-  .map-filter-card select,
-  .auth-form input,
-  .spot-form input,
-  .spot-form textarea {
-    padding: 0 12px;
-  }
-
-  .autocomplete-panel {
-    max-height: 280px;
-  }
-
-  .results-column {
-    min-height: auto;
-  }
-
-  .map-fullscreen {
-    min-height: 340px;
-  }
-
-  .timeline-card {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .timeline-step-number {
-    width: 38px;
-    height: 38px;
-  }
-
-  .site-nav a,
-  .nav-auth-link {
-    padding: 10px 0;
-  }
-
-  .section-heading h2 {
-    margin-bottom: 10px;
-  }
-
-  .hero-subtitle,
-  .planner-summary,
-  .results-summary,
-  .map-note,
-  .card-subline,
-  .card-meta,
-  .submission-meta,
-  .preview-map-header p,
-  .map-panel-header p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-}
-
-@media (max-width: 768px) {
-  html,
-  body {
-    min-width: 0;
-  }
-
-  body {
-    overflow-x: hidden;
-  }
-
-  .page-shell,
-  .page-main,
-  .site-header,
-  .hero,
-  .section-block,
-  .map-page-layout,
-  .explore-layout,
-  .detail-layout,
-  .auth-page-card,
-  .add-spot-layout,
-  .method-layout {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .site-header {
-    padding: 14px 14px 16px;
-    gap: 12px;
-  }
-
-  .site-nav {
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .site-nav a,
-  .nav-auth-link {
-    flex: 1 1 100%;
-    min-width: 0;
-    text-align: center;
-    padding: 10px 0;
-    white-space: normal;
-  }
-
-  .header-actions {
-    width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .search-row,
-  .cta-row,
-  .card-actions,
-  .inline-actions,
-  .planner-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: stretch;
-  }
-
-  .search-row {
-    align-items: stretch;
-  }
-
-  .search-field,
-  .search-autocomplete,
-  .autocomplete-panel,
-  .hero-model-section,
-  .hero-map-section,
-  .results-column,
-  .map-filter-card,
-  .detail-sidebar,
-  .filter-row,
-  .planner-controls,
-  .form-grid,
-  .detail-fact-grid,
-  .detail-score-grid,
-  .score-grid,
-  .stat-strip,
-  .area-grid,
-  .restaurant-grid.three-up,
-  .detail-list-grid {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .search-field {
-    flex: 1 1 100%;
-  }
-
-  .search-autocomplete {
-    min-width: 0;
-    width: 100%;
-  }
-
-  .autocomplete-panel {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .results-meta-row,
-  .callout-card,
-  .preview-map-header,
-  .map-panel-header,
-  .section-heading.with-link {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .filter-row,
-  .planner-controls,
-  .form-grid,
-  .detail-fact-grid,
-  .detail-score-grid,
-  .score-grid,
-  .stat-strip,
-  .area-stats {
-    grid-template-columns: 1fr !important;
-  }
-
-  .restaurant-grid.three-up,
-  .area-grid,
-  .detail-list-grid,
-  .home-area-grid,
-  .home-horizontal-layout,
-  .home-collections-grid,
-  .method-layout,
-  .auth-page-card,
-  .add-spot-layout,
-  .detail-layout,
-  .explore-layout,
-  .map-page-layout {
-    grid-template-columns: 1fr !important;
-  }
-
-  .callout-card,
-  .map-panel-header,
-  .preview-map-header {
-    padding: 18px;
-  }
-
-  .section-heading h2,
-  .hero-copy h1,
-  .auth-copy h1,
-  .method-copy h1,
-  .timeline-card-body h3 {
-    font-size: clamp(2.1rem, 6vw, 3rem);
-  }
-
-  .section-heading h2 {
-    margin-bottom: 12px;
-  }
-
-  .planner-card,
-  .map-filter-card,
-  .signal-card,
-  .preview-map-card,
-  .auth-panel,
-  .submission-panel,
-  .detail-hero-card,
-  .detail-panel,
-  .detail-map-card,
-  .scatter-panel,
-  .callout-card,
-  .story-card {
-    padding: 18px;
-  }
-
-  .planner-summary,
-  .results-summary,
-  .map-note,
-  .hero-subtitle,
-  .card-subline,
-  .card-meta,
-  .submission-meta,
-  .preview-map-header p,
-  .map-panel-header p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .map-column {
-    position: relative;
-    top: auto;
-    min-height: auto;
-  }
-
-  .map-column .map-panel-header {
-    position: static;
-    width: auto;
-    margin: 0 0 12px;
-  }
-
-  .map-fullscreen {
-    min-height: 380px;
-  }
-
-  .timeline-card {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .timeline-step-number {
-    width: 38px;
-    height: 38px;
-  }
-
-  .area-card,
-  .restaurant-card,
-  .timeline-card,
-  .submission-card,
-  .profile-card,
-  .popup-card {
-    min-width: 0;
-  }
-}
-
+/* Tablet & Medium Screens */
 @media (max-width: 1024px) {
   .filter-row,
   .planner-controls,
@@ -2172,12 +1639,79 @@ img {
   }
 }
 
+/* Mobile Phones */
 @media (max-width: 640px) {
+  .page-shell {
+    padding: 10px 10px 32px;
+  }
+
+  .site-header {
+    top: 6px;
+    padding: 14px;
+    border-radius: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
   .site-nav a,
   .nav-auth-link {
     flex: 1 1 100%;
+    text-align: center;
+    padding: 10px 0;
+    min-width: 0;
   }
 
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .brand-copy strong {
+    font-size: 1.7rem;
+  }
+
+  .editorial-hero,
+  .auth-page-card,
+  .signal-card,
+  .preview-map-card,
+  .planner-card,
+  .scatter-panel,
+  .auth-panel,
+  .submission-panel,
+  .detail-hero-card,
+  .detail-panel,
+  .detail-map-card,
+  .card-actions,
+  .inline-actions,
+  .callout-card,
+  .map-panel-header,
+  .preview-map-header {
+    padding: 18px;
+  }
+
+  .hero-copy h1,
+  .auth-copy h1,
+  .method-copy h1,
+  .timeline-card-body h3,
+  .section-heading h2 {
+    font-size: clamp(2.1rem, 8vw, 2.8rem);
+  }
+
+  .search-row,
+  .cta-row,
+  .header-actions,
+  .planner-actions,
+  .timeline-card,
   .filter-row,
   .planner-controls,
   .form-grid,
@@ -2185,17 +1719,15 @@ img {
   .detail-score-grid,
   .score-grid,
   .stat-strip,
-  .area-stats {
+  .area-stats,
+  .card-actions,
+  .inline-actions {
     grid-template-columns: 1fr !important;
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .search-row,
-  .header-actions,
-  .cta-row,
-  .card-actions,
-  .inline-actions,
-  .planner-actions {
-    flex-direction: column;
+  .search-row {
     align-items: stretch;
   }
 
@@ -2239,44 +1771,19 @@ img {
     max-height: 300px;
   }
 
-  .site-header {
-    padding: 14px;
-    border-radius: 18px;
-  }
-
-  .brand-copy strong {
-    font-size: 1.7rem;
-  }
-
-  .hero-copy h1,
-  .auth-copy h1,
-  .method-copy h1,
-  .timeline-card-body h3,
-  .section-heading h2 {
-    font-size: clamp(2.1rem, 8vw, 2.8rem);
-  }
-
   .map-column .map-panel-header {
     position: static;
     width: auto;
     margin-bottom: 12px;
   }
 
-  .card-actions,
-  .inline-actions,
-  .callout-card,
-  .map-panel-header,
+  .map-column .map-panel-header,
   .preview-map-header,
-  .planner-card,
-  .signal-card,
-  .preview-map-card,
-  .auth-panel,
-  .submission-panel,
-  .detail-hero-card,
-  .detail-panel,
-  .detail-map-card,
-  .scatter-panel {
-    padding: 18px;
+  .section-heading.with-link,
+  .results-meta-row,
+  .callout-card {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .planner-actions {
@@ -2304,5 +1811,101 @@ img {
   .map-panel-header p {
     font-size: 0.95rem;
     line-height: 1.6;
+  }
+
+  .explore-map,
+  .map-fullscreen,
+  .map-shell.preview {
+    min-height: 420px;
+  }
+
+  .map-filter-card {
+    position: static;
+    top: auto;
+  }
+
+  .map-page-layout,
+  .explore-layout,
+  .detail-layout,
+  .add-spot-layout,
+  .auth-page-card,
+  .method-layout {
+    grid-template-columns: 1fr;
+  }
+}
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 4px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Desktop view enhancements */
+@media (min-width: 1201px) {
+  .page-shell {
+    padding: 22px 28px 42px;
+  }
+
+  .site-header {
+    padding: 18px 24px;
+    border-radius: 24px;
+  }
+
+  .site-nav {
+    gap: 20px;
+  }
+
+  .header-actions {
+    gap: 18px;
+  }
+
+  .search-row {
+    max-width: 100%;
+  }
+
+  .cta-row {
+    justify-content: flex-start;
+  }
+
+  .editorial-hero {
+    padding: 36px 36px 42px;
+  }
+
+  .hero-model-section .signal-grid,
+  .score-grid,
+  .detail-score-grid,
+  .detail-fact-grid,
+  .stat-strip,
+  .planner-controls,
+  .filter-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .restaurant-grid.three-up,
+  .area-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .explore-layout,
+  .map-page-layout,
+  .detail-layout,
+  .add-spot-layout,
+  .auth-page-card,
+  .method-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .planner-controls {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .map-column {
+    min-height: 72vh;
+  }
+
+  .map-fullscreen {
+    min-height: calc(100vh - 160px);
   }
 }
