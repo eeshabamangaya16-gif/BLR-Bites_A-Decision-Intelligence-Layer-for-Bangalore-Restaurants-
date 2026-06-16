@@ -1501,6 +1501,20 @@ img {
 
   .site-nav {
     width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .site-nav a,
+  .nav-auth-link {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 8px 0;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .filter-row,
@@ -1508,7 +1522,8 @@ img {
   .form-grid,
   .detail-fact-grid,
   .detail-score-grid,
-  .score-grid {
+  .score-grid,
+  .stat-strip {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1524,13 +1539,32 @@ img {
   .restaurant-grid.three-up,
   .area-grid,
   .detail-list-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .home-area-grid {
-      grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr;
   }
+
+  .home-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-column {
+    position: relative;
+    top: auto;
+  }
+
+  .map-filter-card {
+    position: static;
+  }
+
+  .map-panel-header {
+    position: static;
+    width: auto;
+    margin: 0;
+  }
+
+  .planner-actions {
+    justify-content: stretch;
+  }
+}
 
 @media (max-width: 640px) {
   .page-shell {
@@ -1607,5 +1641,104 @@ img {
   .map-fullscreen,
   .map-shell.preview {
     min-height: 420px;
+  }
+
+  .site-nav a,
+  .nav-auth-link {
+    padding: 10px 0;
+  }
+
+  .cta-row,
+  .card-actions,
+  .inline-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .map-filter-card,
+  .auth-page-card,
+  .add-spot-layout,
+  .detail-layout,
+  .explore-layout,
+  .map-page-layout,
+  .method-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-row,
+  .planner-controls,
+  .form-grid,
+  .detail-fact-grid,
+  .detail-score-grid,
+  .score-grid {
+    gap: 10px;
+  }
+}
+
+/* Desktop view enhancements */
+@media (min-width: 1201px) {
+  .page-shell {
+    padding: 22px 28px 42px;
+  }
+
+  .site-header {
+    padding: 18px 24px;
+    border-radius: 24px;
+  }
+
+  .site-nav {
+    gap: 20px;
+  }
+
+  .header-actions {
+    gap: 18px;
+  }
+
+  .search-row {
+    max-width: 100%;
+  }
+
+  .cta-row {
+    justify-content: flex-start;
+  }
+
+  .editorial-hero {
+    padding: 36px 36px 42px;
+  }
+
+  .hero-model-section .signal-grid,
+  .score-grid,
+  .detail-score-grid,
+  .detail-fact-grid,
+  .stat-strip,
+  .planner-controls,
+  .filter-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .restaurant-grid.three-up,
+  .area-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .explore-layout,
+  .map-page-layout,
+  .detail-layout,
+  .add-spot-layout,
+  .auth-page-card,
+  .method-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .planner-controls {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .map-column {
+    min-height: 72vh;
+  }
+
+  .map-fullscreen {
+    min-height: calc(100vh - 160px);
   }
 }
