@@ -1,0 +1,174 @@
+/* BLR Bites mobile toolbar refinement
+   Include this file AFTER styles.css.
+   It only applies at 768px and below, so desktop remains unchanged. */
+
+@media (max-width: 768px) {
+  .page-shell {
+    padding-top: 8px;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 6px;
+    z-index: 80;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 10px;
+    width: calc(100% - 8px);
+    max-width: calc(100vw - 8px);
+    margin-inline: auto;
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 9px;
+  }
+
+  .brand-mark {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+  }
+
+  .brand-mark svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-copy {
+    min-width: 0;
+  }
+
+  .brand-copy strong {
+    font-size: 1.5rem;
+    line-height: 0.9;
+  }
+
+  .brand-copy small {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 0.58rem;
+    letter-spacing: 0.13em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .header-actions {
+    display: flex;
+    width: auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .header-actions .nav-auth-link,
+  .header-actions .primary-button {
+    min-height: 38px;
+    padding: 9px 12px;
+    font-size: 0.86rem;
+    white-space: nowrap;
+  }
+
+  .site-nav {
+    grid-column: 1 / -1;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 2px 1px 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a {
+    flex: 0 0 auto;
+    min-height: 38px;
+    min-width: max-content;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 11px;
+    border: 1px solid rgba(57, 52, 46, 0.08);
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.5);
+    font-size: 0.84rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .site-nav a.active {
+    border-color: rgba(180, 109, 83, 0.22);
+    background: rgba(180, 109, 83, 0.08);
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 9px;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .header-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .header-actions .nav-auth-link,
+  .header-actions .primary-button {
+    width: 100%;
+  }
+
+  .site-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+    gap: 6px;
+  }
+
+  .site-nav a {
+    min-width: 0;
+    padding-inline: 8px;
+    font-size: 0.78rem;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (max-width: 340px) {
+  .brand-copy strong {
+    font-size: 1.35rem;
+  }
+
+  .brand-copy small {
+    font-size: 0.52rem;
+    letter-spacing: 0.09em;
+  }
+
+  .site-nav a,
+  .header-actions .nav-auth-link,
+  .header-actions .primary-button {
+    min-height: 36px;
+    padding-inline: 7px;
+    font-size: 0.74rem;
+  }
+}
